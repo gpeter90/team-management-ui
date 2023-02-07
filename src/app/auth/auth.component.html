@@ -1,0 +1,17 @@
+<div class="row" *ngIf="!isLoggedIn">
+  <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+    <div class="form-group mb-2">
+      <label for="username" class="sr-only">Username</label>
+      <input type="text" class="form-control" id="username" placeholder="Username" ngModel name="username" required>
+    </div>
+    <div class="form-group mx-sm-3 mb-2">
+      <label for="password" class="sr-only">Password</label>
+      <input type="password" class="form-control" id="password" placeholder="Password" ngModel name="password" required minlength="6">
+    </div>
+    <button type="submit" class="btn btn-primary mb-2 col-md-12">Login</button>
+  </form>
+</div>
+<small id="loginHelpMessage" class="form-text text-muted">{{ loginMessage }}</small>
+<div class="row" *ngIf="isLoggedIn">
+  <button type="submit" class="btn btn-primary mb-2 col-md-12" (click)="logout()">Logout</button>
+</div>

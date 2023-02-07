@@ -1,0 +1,30 @@
+<div class="spinner-border" role="status" *ngIf="isFetching">
+  <span class="sr-only">Loading...</span>
+</div>
+<div class="row">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Established</th>
+        <th scope="col">No Championship Titles</th>
+        <th scope="col">Entry Fee Paid</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let team of teams; let i = index">
+        <th scope="row">{{ team.id }}</th>
+        <th>{{ team.name }}</th>
+        <th>{{ team.established }}</th>
+        <th>{{ team.noChampionshipTitles }}</th>
+        <th>{{ team.entryFee }}</th>
+        <th>
+          <button class="btn btn-success" routerLink="/edit/{{ team.id }}"><i class="glyphicon glyphicon-pencil"></i></button>
+          <button class="btn btn-danger" (click)="deleteTeam(team, i)"><i class="glyphicon glyphicon-trash"></i></button>
+        </th>
+      </tr>
+    </tbody>
+  </table>
+</div>
