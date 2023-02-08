@@ -21,8 +21,8 @@
         <th>{{ team.noChampionshipTitles }}</th>
         <th>{{ team.entryFee }}</th>
         <th>
-          <button class="btn btn-success" routerLink="/edit/{{ team.id }}"><i class="glyphicon glyphicon-pencil"></i></button>
-          <button class="btn btn-danger" (click)="deleteTeam(team, i)"><i class="glyphicon glyphicon-trash"></i></button>
+          <button *ngIf="isAuthenticated" class="btn btn-success" routerLink="/edit/{{ team.id }}"><i class="glyphicon glyphicon-pencil"></i></button>
+          <button *ngIf="isAuthenticated" class="btn btn-danger" (click)="deleteTeam(team, i)"><i class="glyphicon glyphicon-trash"></i></button>
         </th>
       </tr>
     </tbody>

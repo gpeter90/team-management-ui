@@ -12,6 +12,7 @@ export class TeamsComponent implements OnInit{
 
   public teams: Team[];
   public isFetching = false;
+  public isAuthenticated = false;
 
   constructor(private teamsService: TeamsService) {
   }
@@ -22,6 +23,11 @@ export class TeamsComponent implements OnInit{
       this.isFetching = false;
       this.teams = teams;
     });
+    if (localStorage.getItem('currentUser')) {
+      this.isAuthenticated = true;
+    } else {
+      this.isAuthenticated = false;
+    }
   }
 
   deleteTeam(team: Team, index: number) {

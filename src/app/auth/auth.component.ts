@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {NgForm} from "@angular/forms";
 import {AuthService} from "./auth.service";
 
@@ -7,12 +7,16 @@ import {AuthService} from "./auth.service";
   templateUrl: './auth.component.html',
   styleUrls: ['./auth.component.css']
 })
-export class AuthComponent {
+export class AuthComponent implements OnInit {
 
   public loginMessage: string;
   public isLoggedIn = false;
 
   constructor(private authService: AuthService) {
+  }
+
+  ngOnInit() {
+    this.logout();
   }
 
   onSubmit(form: NgForm) {
